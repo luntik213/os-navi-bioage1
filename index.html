@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ось Нави BioAge — центр превентивной медицины, диагностики и биохакинга.">
+  <title>Ось Нави BioAge</title>
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --card: #ffffff;
+      --text: #20211f;
+      --muted: #6d6e69;
+      --line: #dddcd6;
+      --accent: #252621;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+
+    .phone {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: .98;
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .lead {
+      max-width: 560px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero img,
+    .photo-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero img {
+      height: 500px;
+      border-radius: 2px;
+    }
+
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 38px;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .audience article {
+      background: var(--card);
+      padding: 30px;
+    }
+
+    .number {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 38px;
+    }
+
+    .audience h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .audience p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+    }
+
+    .photo-card {
+      background: var(--card);
+      padding: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .photo-card img {
+      height: 360px;
+    }
+
+    .photo-card.small img {
+      height: 360px;
+      object-fit: contain;
+      background: #eef0f2;
+    }
+
+    .photo-caption {
+      padding: 16px 8px 8px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .prices {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--card);
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 17px 18px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: #eceae4;
+      font-weight: 600;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .cta {
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      max-width: 800px;
+      margin: 0 auto 18px;
+    }
+
+    .cta p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 24px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 2px;
+      font-size: 15px;
+    }
+
+    .location {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 800px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .hero { padding-top: 45px; }
+      .hero-grid,
+      .audience,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .hero img { height: 340px; }
+      .photo-card img,
+      .photo-card.small img { height: auto; max-height: 420px; }
+      section { padding: 52px 0; }
+      .nav { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">Ось Нави · BioAge</div>
+    <a class="phone" href="tel:89208029295">8 920 802 92 95</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:0;">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Центр превентивной медицины · диагностики и биохакинга</p>
+        <h1>Ось Нави<br>BioAge</h1>
+        <p class="lead">
+          Пространство для тех, кто выбирает здоровье, энергию и осознанное долголетие.
+        </p>
+      </div>
+      <div>
+        <img src="clinic.jpg" alt="Ось Нави BioAge — фасад центра">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Для кого создан<br>«Ось Нави»?</h2>
+
+      <div class="audience">
+        <article>
+          <div class="number">01</div>
+          <h3>Предприниматели и топ-менеджеры</h3>
+          <p>Кому нужен ясный ум, высокая концентрация и неиссякаемый ресурс для принятия масштабных решений.</p>
+        </article>
+
+        <article>
+          <div class="number">02</div>
+          <h3>ИТ-специалисты и креативный класс</h3>
+          <p>Кто регулярно сталкивается с ментальным выгоранием, хронической усталостью, «синдромом менеджера» и нарушением сна.</p>
+        </article>
+
+        <article>
+          <div class="number">03</div>
+          <h3>Осознанное долголетие</h3>
+          <p>Для тех, кто хочет выглядеть и чувствовать себя молодо в 30, 40, 50+ лет, сохраняя высокий уровень физической и эстетической активности.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Пространство</h2>
+      <div class="gallery">
+        <div class="photo-card">
+          <img src="clinic.jpg" alt="Фасад Ось Нави BioAge">
+          <div class="photo-caption">Ось Нави BioAge</div>
+        </div>
+        <div class="photo-card small">
+          <img src="services.jpg" alt="Стоимость услуг Ось Нави BioAge">
+          <div class="photo-caption">Услуги и стоимость</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Услуги</h2>
+      <div class="prices">
+        <table>
+          <thead>
+            <tr>
+              <th>№</th>
+              <th>Услуга</th>
+              <th>Точная стоимость</th>
+              <th>Формат / объём</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Очная консультация врача</td><td>4 500 ₽</td><td>60 минут, первичный приём</td></tr>
+            <tr><td>2</td><td>Узкопрофильная консультация</td><td>6 500 ₽</td><td>Эксперт (эндокринолог / генетик)</td></tr>
+            <tr><td>3</td><td>Базовый check-up</td><td>35 000 ₽</td><td>Анализы + УЗИ + терапевт</td></tr>
+            <tr><td>4</td><td>Расширенный check-up</td><td>85 000 ₽</td><td>Полный чекап + узкие специалисты</td></tr>
+            <tr><td>5</td><td>Инфузионная процедура*</td><td>6 500 ₽</td><td>1 капельница (витаминный коктейль/детокс)</td></tr>
+            <tr><td>6</td><td>Консультация по нутрициологии</td><td>5 000 ₽</td><td>Разбор рациона и назначение нутрицевтиков</td></tr>
+            <tr><td>7</td><td>План образа жизни с сопровождением</td><td>30 000 ₽</td><td>Ведение куратором в чате (1 месяц)</td></tr>
+            <tr><td>8</td><td>Реабилитационная сессия</td><td>5 500 ₽</td><td>1 сеанс (остеопатия / ЛФК / массаж)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Сделайте первый шаг к своей лучшей биологической версии.</h2>
+      <p>Записаться на первичную консультацию с anti-age экспертом центра можно по номеру телефона.</p>
+      <a class="button" href="tel:89208029295">Записаться · 8 920 802 92 95</a>
+      <div class="location">г. Орёл, Советский район, ул. Максима Горького 44, 1 этаж.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Ось Нави BioAge</div>
+</footer>
+
+</body>
+</html>
